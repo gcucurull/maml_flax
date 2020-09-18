@@ -90,7 +90,8 @@ def main():
         # (meta_train_x, meta_train_y, meta_val_x, meta_val_y)
         batch = generate_sin_tasks(batch_size, n_points)
         optimizer, loss = train_step(optimizer, batch)
-        print(f"Iteration {i}: loss: {loss}")
+        if i % 500 == 0:
+            print(f"Iteration {i}: loss: {loss}")
 
     elapsed = time.time() - before
     print(f"mean square error: {loss}, elapsed: {elapsed}")
